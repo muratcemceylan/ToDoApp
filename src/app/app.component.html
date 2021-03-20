@@ -2,7 +2,7 @@
     <div class="row justify-content-center">
         <div class="col-5">
         <h3 class="bg-primary text-white p3">
-        [Cimmie] To Do List
+        [{{user}}] To Do List
         </h3>
         <div class="input-group">
         <input type="text" class="form-control">
@@ -19,35 +19,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-            <th scope="row">1</th>
-            <td>Kahvaltı</td>
-            <td>No</td>   
-            </tr> 
-            <tr>       
-            <th scope="row">2</th>    
-            <td>Spor</td>
-            <td>No</td>
-            </tr>  
-            <tr>     
-            <th scope="row">3</th>            
-            <td>Fatura</td>
-            <td>No</td>
-            </tr>  
-            <tr>   
-            <th scope="row">4</th>           
-            <td>Yüzme</td>
-            <td>No</td> 
-            </tr>  
-            <tr>   
-            <th scope="row">5</th>         
-            <td>Sinema</td>
-            <td>No</td>
-            </tr> 
-            <tr>
-            <th scope="row">6</th>
-            <td>Satranç</td>
-            <td>No</td>
+            <tr *ngFor="let item of items"> 
+                <td>{{ item.description }}</td>                
+                <td>{{ item.action }}</td>
             </tr>
         </tbody>
         </table>
