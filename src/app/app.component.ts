@@ -1,3 +1,4 @@
+import { Model, ToDoItem } from './model';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,11 +7,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  user="Cem";
-  items = [
-    { description: "Kahvaltı", action: "No"},
-    { description: "Sinema", action: "No"},
-    { description: "Spor", action: "No"},
-    { description: "Ders Çalışma", action: "No"}
-  ];
+  model = new Model();
+  isDisplay=false;
+
+  getName(){
+    return this.model.user;
+  }
+  getItems(){
+    if (this.isDisplay){
+      return this.model.items;
+    }
+    return this.model.items.filter(item=> !item.action);
+  }
+
+  addItem(value){
+    if (value!=""){
+      this.model.items.push(new ToDoItem(value,false));
+    }
+  }
 }
